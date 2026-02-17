@@ -1,0 +1,130 @@
+first::<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VerifyPro - Product Verification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav>
+    <div class="logo">VerifyPro</div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#" class="btn">Login / Signup</a></li>
+    </ul>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <h1>Welcome to <span>VerifyPro</span></h1>
+    <p>
+        Receive authentic products.  
+        Block scams before they reach you.  
+        Scan. Verify. Trust with confidence.
+    </p>
+</section>
+
+<!-- FLOATING PRODUCTS -->
+<div class="floating-container">
+    <img src="https://cdn-icons-png.flaticon.com/512/1040/1040230.png" class="float item1">
+    <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" class="float item2">
+    <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" class="float item3">
+    <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" class="float scan-icon">
+</div>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="section">
+    <h2>About VerifyPro</h2>
+    <p>
+        VerifyPro is a smart product authentication platform designed to 
+        eliminate counterfeit products from online shopping. 
+        We empower customers and sellers with secure QR scanning, 
+        instant verification, and fraud detection technology.
+    </p>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Email: support@verifypro.com</p>
+    <p>Phone: +91 9876543210</p>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
+sencond::
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VerifyPro - Product Verification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">VerifyPro</div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#" class="btn">Login / Signup</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+    <div class="hero-left">
+        <h1>Welcome to <span>VerifyPro</span></h1>
+        <p>
+            Get genuine products every time.  
+            Detect counterfeit goods instantly.  
+            Scan smart. Shop safe. Stay protected.
+        </p>
+        <button class="primary-btn">Start Verifying</button>
+    </div>
+
+    <div class="hero-right">
+        <img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" class="float">
+        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" class="float delay">
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+    <div class="content-left">
+        <h2>About VerifyPro</h2>
+        <p>
+            VerifyPro is a next-generation product authentication platform 
+            built to eliminate online fraud.  
+            Our system allows customers to scan product codes instantly 
+            and verify authenticity in seconds.  
+
+            We bridge the trust gap between buyers and sellers using 
+            intelligent verification technology and secure tracking systems.
+        </p>
+    </div>
+
+    <div class="content-right">
+        <img src="https://cdn-icons-png.flaticon.com/512/1040/1040230.png" class="float">
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <div class="content-left">
+        <h2>Contact Us</h2>
+        <p>Email: support@verifypro.com</p>
+        <p>Phone: +91 9876543210</p>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+first::
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;
+    align-items: center;
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00f2fe;
+}
+
+.btn {
+    padding: 8px 16px;
+    background: #00c6ff;
+    border-radius: 20px;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    margin-top: 120px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 60px;
+}
+
+.hero span {
+    color: #00f2fe;
+}
+
+.hero p {
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* FLOATING IMAGES */
+.floating-container img {
+    width: 80px;
+    position: absolute;
+}
+
+.item1 { top: 30%; left: 10%; animation: float 6s infinite ease-in-out; }
+.item2 { top: 60%; left: 20%; animation: float 8s infinite ease-in-out; }
+.item3 { top: 40%; right: 15%; animation: float 7s infinite ease-in-out; }
+.scan-icon { bottom: 20%; right: 10%; animation: scan 3s infinite; }
+
+/* SECTIONS */
+.section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+/* ANIMATIONS */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes scan {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+    nav {
+        flex-direction: column;
+    }
+}
