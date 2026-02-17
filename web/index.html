@@ -2,160 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Fraud Detection System</title>
+    <title>VerifyPro - Product Verification</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<script>
+function toggleMode() {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+    } else {
+        localStorage.setItem("theme", "dark");
+    }
+}
+
+window.onload = function () {
+    if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+    }
+};
+</script>
+
+
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="header-content">
-                <h1 class="title">🛡️ Product Fraud Detection</h1>
-                <p class="subtitle">AI-Powered Return Verification System</p>
-            </div>
-        </header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Input Section -->
-            <section class="card input-section">
-                <h2 class="section-title">Product Return Analysis</h2>
-                
-                <div class="form-group">
-                    <label for="product-id" class="label">Product ID</label>
-                    <input 
-                        type="text" 
-                        id="product-id" 
-                        class="input" 
-                        placeholder="Enter product ID (e.g., PROD001)"
-                        required
-                    >
-                    <p class="help-text">Enter the ID of the product being returned</p>
-                </div>
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">VerifiedPro</div>
+    <ul>
+        <button onclick="toggleMode()" class="mode-btn">🌙</button>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="login.html" class="btn">Login / Signup</a></li>
+    </ul>
+</nav>
 
-                <div class="form-group">
-                    <label class="label">Returned Product Image</label>
-                    
-                    <div class="upload-options">
-                        <button id="upload-btn" class="btn btn-secondary">
-                            📁 Upload Image
-                        </button>
-                        <button id="camera-btn" class="btn btn-secondary">
-                            📷 Use Camera
-                        </button>
-                    </div>
-                    
-                    <input 
-                        type="file" 
-                        id="file-input" 
-                        accept="image/*" 
-                        style="display: none;"
-                    >
-                    
-                    <div id="preview-container" class="preview-container" style="display: none;">
-                        <img id="preview-image" class="preview-image" alt="Preview">
-                        <button id="remove-image" class="btn-remove">✕</button>
-                    </div>
-
-                    <div id="camera-container" class="camera-container" style="display: none;">
-                        <video id="camera-video" class="camera-video" autoplay playsinline></video>
-                        <div class="camera-controls">
-                            <button id="capture-btn" class="btn btn-primary">📸 Capture</button>
-                            <button id="close-camera-btn" class="btn btn-secondary">Cancel</button>
-                        </div>
-                        <canvas id="camera-canvas" style="display: none;"></canvas>
-                    </div>
-                </div>
-
-                <button id="analyze-btn" class="btn btn-primary btn-large" disabled>
-                    🔍 Analyze Product
-                </button>
-
-                <div id="loading" class="loading" style="display: none;">
-                    <div class="spinner"></div>
-                    <p>Analyzing product...</p>
-                </div>
-            </section>
-
-            <!-- Results Section -->
-            <section id="results-section" class="card results-section" style="display: none;">
-                <h2 class="section-title">Analysis Results</h2>
-                
-                <div id="status-banner" class="status-banner">
-                    <div class="status-icon">✓</div>
-                    <div class="status-content">
-                        <h3 id="status-title" class="status-title">Status</h3>
-                        <p id="status-recommendation" class="status-recommendation">Recommendation</p>
-                    </div>
-                </div>
-
-                <div class="results-grid">
-                    <!-- Authentication Results -->
-                    <div class="result-card">
-                        <h3 class="result-title">🔐 Product Authentication</h3>
-                        <div class="result-content">
-                            <div class="metric">
-                                <span class="metric-label">Authenticity</span>
-                                <span id="auth-status" class="metric-value">-</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Similarity Score</span>
-                                <span id="similarity-score" class="metric-value">-</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Confidence</span>
-                                <span id="auth-confidence" class="metric-value">-</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div id="similarity-progress" class="progress-fill"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Damage Assessment Results -->
-                    <div class="result-card">
-                        <h3 class="result-title">🔍 Damage Assessment</h3>
-                        <div class="result-content">
-                            <div class="metric">
-                                <span class="metric-label">Damage Level</span>
-                                <span id="damage-level" class="metric-value">-</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-label">Confidence</span>
-                                <span id="damage-confidence" class="metric-value">-</span>
-                            </div>
-                            
-                            <div class="damage-breakdown">
-                                <h4 class="breakdown-title">Detailed Breakdown</h4>
-                                <div id="damage-breakdown-content"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <button id="new-analysis-btn" class="btn btn-secondary btn-large">
-                    🔄 New Analysis
-                </button>
-            </section>
-
-            <!-- Error Section -->
-            <section id="error-section" class="card error-section" style="display: none;">
-                <div class="error-content">
-                    <div class="error-icon">⚠️</div>
-                    <h3 class="error-title">Error</h3>
-                    <p id="error-message" class="error-message"></p>
-                    <button id="dismiss-error-btn" class="btn btn-secondary">Dismiss</button>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>Powered by CNN Deep Learning | Siamese Network Architecture</p>
-        </footer>
+<!-- HERO -->
+<section id="home" class="hero">
+    <div class="hero-left">
+        <h1>Welcome to <span>VerifiedPro</span></h1>
+        <p>
+            Get genuine products every time.
+            Detect counterfeit goods instantly.
+            Scan smart. Shop safe. Stay protected.
+        </p>
+        <button class="primary-btn">Start Verifying</button>
     </div>
 
-    <script src="script.js"></script>
+    <div class="hero-right">
+        <div class="circle">
+            <img src="tested\images\pods.png",alt="pods">
+            <img src="tested\images\cart.png" alt="Shopping Cart Icon">
+            <img src="tested\images\report.png" alt="report">
+            <img src="tested\images\3orange.png" alt="3orange">
+            <img src="tested\images\watch.png" alt="Watch Icon">        </div>
+    </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="section">
+    <div class="content-left">
+        <h2>About VerifiedPro</h2>
+        <p>
+            VerifiedPro is a next-generation product authentication platform 
+            built to eliminate online fraud.  
+            Our system allows customers to scan product codes instantly 
+            and verify authenticity in seconds.  
+
+            We bridge the trust gap between buyers and sellers using 
+            intelligent verification technology and secure tracking systems.
+        </p>
+    </div>
+
+    <div class="content-right">
+        <img src="https://cdn-icons-png.flaticon.com/512/1040/1040230.png" class="float">
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <div class="content-left">
+        <h2>Contact Us</h2>
+        <p>Email: support@verifypro.com</p>
+        <p>Phone: +91 9876543210</p>
+    </div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
