@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - VerifyPro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+function toggleMode() {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+    } else {
+        localStorage.setItem("theme", "dark");
+    }
+}
+
+window.onload = function () {
+    if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-mode");
+    }
+};
+</script>
+
+<body><h2 class="login-title">
+    <a href="index.html">
+        <span class="arrow"> ← </span> 
+    </a>
+</h2>
+<div class="login-container">
+<div class="login-box">
+    <h2 class="register-heading">REGISTER</h2>
+
+
+    <form>
+
+        <!-- Common Fields -->
+        <div class="input-group">
+            <label>Name</label>
+            <input type="text" placeholder="Enter name" required>
+        </div>
+
+        <div class="input-group">
+            <label>Email</label>
+            <input type="email" placeholder="Enter email" required>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input type="password" placeholder="Enter password" required>
+        </div>
+
+        <div class="input-group">
+            <label>Role</label>
+            <select id="role" onchange="showFields()" required>
+                <option value="">Select Role</option>
+                <option value="seller">Seller</option>
+                <option value="customer">Customer</option>
+                <option value="agent">Agent</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+
+        <!-- Seller Fields -->
+        <div id="seller-fields" class="role-fields">
+            <div class="input-group">
+                <label>Shop Name</label>
+                <input type="text" placeholder="Enter shop name">
+            </div>
+            <div class="input-group">
+                <label>License No</label>
+                <input type="text" placeholder="Enter license number">
+            </div>
+        </div>
+
+        <!-- Customer Fields -->
+        <div id="customer-fields" class="role-fields">
+            <div class="input-group">
+                <label>Address</label>
+                <input type="text" placeholder="Enter address">
+            </div>
+        </div>
+
+        <!-- Agent Fields -->
+        <div id="agent-fields" class="role-fields">
+            <div class="input-group">
+                <label>Region</label>
+                <input type="text" placeholder="Enter region">
+            </div>
+        </div>
+
+        <!-- Admin Fields -->
+        <div id="admin-fields" class="role-fields">
+            <div class="input-group">
+                <label>Admin Level</label>
+                <input type="text" placeholder="Enter admin level">
+            </div>
+        </div>
+
+        <button type="submit" class="login-btn">Register</button>
+        <p class="register-text">
+                Already have an account? <a href="login.html">Login</a>
+            </p>
+    </form>
+
+</div>
+</div>
+<script>
+function showFields() {
+    let role = document.getElementById("role").value;
+
+    document.getElementById("seller-fields").style.display = "none";
+    document.getElementById("customer-fields").style.display = "none";
+    document.getElementById("agent-fields").style.display = "none";
+    document.getElementById("admin-fields").style.display = "none";
+
+    if(role === "seller") {
+        document.getElementById("seller-fields").style.display = "block";
+    }
+    else if(role === "customer") {
+        document.getElementById("customer-fields").style.display = "block";
+    }
+    else if(role === "agent") {
+        document.getElementById("agent-fields").style.display = "block";
+    }
+    else if(role === "admin") {
+        document.getElementById("admin-fields").style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>
