@@ -1,0 +1,390 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #000000;   /* white -> black */
+    color: #ffffff;        /* text white for contrast */
+}
+
+/* ================= NAVBAR ================= */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #000000;   /* white -> black */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 80px;
+    box-shadow: 0 2px 10px rgba(255,0,0,0.2);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff0000;   /* blue -> red */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;   /* black text -> white */
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff0000;   /* blue -> red */
+}
+
+.btn {
+    background: #ff0000;  /* blue -> red */
+    color: #ffffff !important;
+    padding: 8px 18px;
+    border-radius: 20px;
+}
+
+/* ================= HERO SECTION ================= */
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 120px 80px;
+    min-height: 100vh;
+}
+
+.hero-left {
+    width: 50%;
+}
+
+.hero-left h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
+}
+
+.hero-left span {
+    color: #ff0000;   /* blue -> red */
+}
+
+.hero-left p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.primary-btn {
+    padding: 12px 25px;
+    background: #ff0000;  /* blue -> red */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.primary-btn:hover {
+    background: #cc0000;
+}
+
+/* ================= HERO RIGHT CIRCLE ================= */
+
+.hero-right {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border: none;  /* blue -> red */
+    border-radius: 50%;
+    animation: rotateCircle 20s linear infinite;
+}
+
+/* ICONS INSIDE CIRCLE */
+.circle img {
+    position: absolute;
+    width: 60px;
+}
+
+/* Circular placement */
+.circle img:nth-child(1) { top: 0; left: 50%; transform: translate(-50%, -50%); }
+.circle img:nth-child(2) { top: 50%; right: 0; transform: translate(50%, -50%); }
+.circle img:nth-child(3) { bottom: 0; left: 50%; transform: translate(-50%, 50%); }
+.circle img:nth-child(4) { top: 50%; left: 0; transform: translate(-50%, -50%); }
+.circle img:nth-child(5) { top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+/* ROTATION */
+@keyframes rotateCircle {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ================= ABOUT & CONTACT ================= */
+
+.section {
+    padding: 150px 200px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 42px;
+    margin-bottom: 25px;
+    color: #ff0000;   /* blue -> red */
+}
+
+.section p {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 15px auto;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-left,
+    .hero-right {
+        width: 100%;
+    }
+
+    .hero-right {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 600px) {
+    nav {
+        padding: 15px 20px;
+        flex-direction: column;
+    }
+
+    nav ul {
+        margin-top: 10px;
+    }
+
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .section {
+        padding: 100px 30px;
+    }
+
+    .circle {
+        width: 280px;
+        height: 280px;
+    }
+}
+/* ===== login and register
+ ===== */
+
+.login-container {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+}
+
+.login-box {
+    width: 400px;
+    padding: 40px;
+    background: #111111;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+    animation: fadeIn 0.8s ease-in-out;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login-box h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.login-box span {
+    color: red;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #000000;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: red;
+    box-shadow: 0 0 6px red;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: red;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #cc0000;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.login-title .arrow {
+    font-size: 40px;
+    color: red;
+    transition: 0.3s;
+}
+.role-fields {
+    display: none;
+}
+.login-container .login-box .register-heading {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 30px;
+}
+
+
+/*=================changing theme ===============*/
+.mode-btn {
+    background: red;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+/* LIGHT MODE */
+
+body.light-mode {
+    background: #ffffff;
+}
+
+body.light-mode nav {
+    background: #ffffff;
+}
+
+body.light-mode nav ul li a {
+    color: #000000;
+}
+
+body.light-mode .logo {
+    color: red;
+}
+body.light-mode .login-container {
+    background: #f5f5f5;
+    color: black;
+}
+body.light-mode .login-box {
+    background: #f5f5f5;
+    color: black;
+}
+
+body.light-mode .input-group input,
+body.light-mode .input-group select {
+    background: #ffffff;
+    color: black;
+    border: 1px solid #ccc;
+}
+body.light-mode .login-box {
+    background: #f0f0f0;
+    color: black;
+}
+
+body.light-mode .login-box h2 {
+    color: black;
+}
+/* ===== LIGHT MODE FULL OVERRIDE ===== */
+
+body.light-mode {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+/* Navbar */
+body.light-mode nav {
+    background-color: #ffffff !important;
+}
+
+/* Hero Section */
+body.light-mode .hero {
+    background-color: #ffffff !important;
+}
+
+/* Sections */
+body.light-mode .section {
+    background-color: #ffffff !important;
+}
+
+/* Login/Register Page */
+body.light-mode.login-page {
+    background-color: #ffffff !important;
+}
+
